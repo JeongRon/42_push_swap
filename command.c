@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 17:12:51 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/18 22:22:32 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:58:36 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	*stack_b = (*stack_b)->next;
 	ft_lstadd_front(stack_a, tmp);
+	printf("pa\n");
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
@@ -70,6 +71,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	*stack_a = (*stack_a)->next;
 	ft_lstadd_front(stack_b, tmp);
+	printf("pb\n");
 }
 
 void	ra(t_stack **stack_a)
@@ -83,6 +85,7 @@ void	ra(t_stack **stack_a)
 	*stack_a = (*stack_a)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack_a, tmp);
+	printf("ra\n");
 }
 
 void	rb(t_stack **stack_b)
@@ -95,6 +98,7 @@ void	rb(t_stack **stack_b)
 	*stack_b = (*stack_b)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack_b, tmp);
+	printf("rb\n");
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
@@ -119,6 +123,7 @@ void	rra(t_stack **stack_a)
 	pre->next = NULL;
 	curr->next = *stack_a;
 	*stack_a = curr;
+	printf("rra\n");
 }
 
 void	rrb(t_stack **stack_b)
@@ -137,6 +142,7 @@ void	rrb(t_stack **stack_b)
 	pre->next = NULL;
 	curr->next = *stack_b;
 	*stack_b = curr;
+	printf("rrb\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)

@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:38:39 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/18 23:07:23 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/21 21:47:13 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,13 +163,6 @@ int	error_msg(void)
 	return (0);
 }
 
-#include <stdio.h>
-
-void	leak_check(void)
-{
-	system("leaks --list a.out");
-}
-
 void	make_order_one(t_stack **stack_a, int order)
 {
 	long long	small;
@@ -195,28 +188,51 @@ void	make_order_one(t_stack **stack_a, int order)
 	}
 }
 
-void	make_order(t_stack **stack_a, t_info info)
+void	make_order(t_stack **stack_a, t_info *info)
 {
 	int		order;
-	t_stack	*tmp;
 
-	info.length = ft_lstsize(*stack_a);
 	order = 1;
-	while (order <= info.length)
+	while (order <= info->length)
 	{
-		tmp = *stack_a;
 		make_order_one(stack_a, order);
 		order++;
 	}
 }
 
+void	make_info(t_stack **stack_a, t_info *info)
+{
+	info->length = ft_lstsize(*stack_a);
+	if (info->length <= 100)
+		info->section_all = 4;
+	else
+		info->section_all = 8;
+	info->section_divide = info->length / info->section_all;
+	info->section_remainder = info->length % info->section_all;
+	info->order_start = 1;
+	if (info->section_remainder != 0)
+	{
+		info->order_end = info->section_divide + 1;
+		info->section_remainder--;
+	}
+	else
+		info->order_end = info->section_divide;
+	info->play_section = 1;
+	info->play_cnt = info->order_end - info->order_start + 1;
+}
+
+// void	leak_check(void)
+// {
+	// system("leaks --list a.out");
+// }
+
 int	main(int ac, char **av)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	t_info	info;
-	t_stack	*buff_a;
-	t_stack	*buff_b;
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	t_info		info;
+	t_stack		*buff_a;
+	t_stack		*buff_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -227,53 +243,13 @@ int	main(int ac, char **av)
 			ft_lstclear(&stack_a);
 			return (error_msg());
 		}
-		make_order(&stack_a, info);
+		make_info(&stack_a, &info);
+		make_order(&stack_a, &info);
 	}
-	/*
-	sa(&stack_a);
-	sb(&stack_b);
-	ss(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	ra(&stack_a);
-	rb(&stack_b);
-	rr(&stack_a, &stack_b);
-	rra(&stack_a);
-	rrb(&stack_b);
-	rrr(&stack_a, &stack_b);
-	*/
-	// // 출력 확인
-	// sa(&stack_a);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
-	// sa(&stack_a);
-	// pa(&stack_a, &stack_b);
-	// pa(&stack_a, &stack_b);
-	// pa(&stack_a, &stack_b);
-
-
-	buff_a = stack_a;
-	buff_b = stack_b;
-	while (buff_a)
-	{
-		printf("%d  %d\n", buff_a->value, buff_a->order);
-		buff_a = buff_a -> next;
-	}
-	// printf("stack_a : ");
-	// while (buff_a)
-	// {
-	// 	printf("%d  ", buff_a -> value);
-	// 	buff_a = buff_a -> next;
-	// }
-	// printf("\n");
-	// printf("stack_b : ");
-	// while (buff_b)
-	// {
-	// 	printf("%d  ", buff_b -> value);
-	// 	buff_b = buff_b -> next;
-	// }
+	send_a_to_b(&stack_a, &stack_b, &info);
+	send_b_to_a(&stack_a, &stack_b, &info);
 	ft_lstclear(&stack_a);
-	atexit(leak_check);
+	ft_lstclear(&stack_b);
+	// atexit(leak_check);
 	return (0);
 }
