@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:17:43 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/21 21:46:05 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:37:18 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	run_command(int flag, t_stack **stack_a, t_stack **stack_b, t_info *info)
 			}
 		}
 	}
+	if (info->order_center > (*stack_b)->order)
+		rb(stack_b);
 }
 
 // a->b 스택으로 보내기 
@@ -102,10 +104,11 @@ void	send_a_to_b(t_stack **stack_a, t_stack **stack_b, t_info *info)
 		else
 			info->order_end += info->section_divide;
 		info->play_cnt = info->order_end - info->order_start + 1;
+		info->order_center = (info->order_end + info->order_start) / 2;
 	}
 }
 
-int	find_least_com(int find_order, t_stack **stack_b, t_info *info)
+int	find_least_com(int find_order, t_stack **stack_b)
 {
 	t_stack	*tmp;
 	int		b_length;
@@ -129,7 +132,7 @@ int	find_least_com(int find_order, t_stack **stack_b, t_info *info)
 		return (1);
 }
 
-void	run_com(int flag, int find_order, t_stack **stack_a, t_stack **stack_b, t_info *info)
+void	run_com(int flag, int find_order, t_stack **stack_a, t_stack **stack_b)
 {
 	if (flag == 0)
 		pa(stack_a, stack_b);
@@ -169,8 +172,8 @@ void	send_b_to_a(t_stack **stack_a, t_stack **stack_b, t_info *info)
 	find_order = info->length;
 	while (find_order != 0)
 	{
-		flag = find_least_com(find_order, stack_b, info);
-		run_com(flag, find_order, stack_a, stack_b, info);
+		flag = find_least_com(find_order, stack_b);
+		run_com(flag, find_order, stack_a, stack_b);
 		find_order--;
 	}
 }

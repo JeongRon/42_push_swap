@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:38:39 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/21 21:47:13 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:41:07 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,8 +205,10 @@ void	make_info(t_stack **stack_a, t_info *info)
 	info->length = ft_lstsize(*stack_a);
 	if (info->length <= 100)
 		info->section_all = 4;
-	else
+	else if (info->length < 500)
 		info->section_all = 8;
+	else
+		info->section_all = 16;
 	info->section_divide = info->length / info->section_all;
 	info->section_remainder = info->length % info->section_all;
 	info->order_start = 1;
@@ -219,6 +221,7 @@ void	make_info(t_stack **stack_a, t_info *info)
 		info->order_end = info->section_divide;
 	info->play_section = 1;
 	info->play_cnt = info->order_end - info->order_start + 1;
+	info->order_center = (info->order_end + info->order_start) / 2;
 }
 
 // void	leak_check(void)
@@ -226,13 +229,25 @@ void	make_info(t_stack **stack_a, t_info *info)
 	// system("leaks --list a.out");
 // }
 
+int	check_sorted(t_stack **stack_a)
+{
+	t_stack	*tmp;
+
+	tmp = *stack_a;
+	while (tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			return (FAIL);
+		tmp = tmp->next;
+	}
+	return (SUCCESS);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 	t_info		info;
-	t_stack		*buff_a;
-	t_stack		*buff_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -244,10 +259,12 @@ int	main(int ac, char **av)
 			return (error_msg());
 		}
 		make_info(&stack_a, &info);
+		if (check_sorted(&stack_a) == SUCCESS)
+			return (0);
 		make_order(&stack_a, &info);
+		send_a_to_b(&stack_a, &stack_b, &info);
+		send_b_to_a(&stack_a, &stack_b, &info);
 	}
-	send_a_to_b(&stack_a, &stack_b, &info);
-	send_b_to_a(&stack_a, &stack_b, &info);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	// atexit(leak_check);

@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 17:12:51 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/21 20:58:36 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/21 23:27:56 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	*stack_b = (*stack_b)->next;
 	ft_lstadd_front(stack_a, tmp);
-	printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
@@ -71,7 +71,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	*stack_a = (*stack_a)->next;
 	ft_lstadd_front(stack_b, tmp);
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }
 
 void	ra(t_stack **stack_a)
@@ -85,7 +85,7 @@ void	ra(t_stack **stack_a)
 	*stack_a = (*stack_a)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack_a, tmp);
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **stack_b)
@@ -98,7 +98,7 @@ void	rb(t_stack **stack_b)
 	*stack_b = (*stack_b)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack_b, tmp);
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
@@ -123,7 +123,7 @@ void	rra(t_stack **stack_a)
 	pre->next = NULL;
 	curr->next = *stack_a;
 	*stack_a = curr;
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **stack_b)
@@ -142,7 +142,7 @@ void	rrb(t_stack **stack_b)
 	pre->next = NULL;
 	curr->next = *stack_b;
 	*stack_b = curr;
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
