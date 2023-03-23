@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:38:39 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/23 19:41:07 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:59:50 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,10 +205,8 @@ void	make_info(t_stack **stack_a, t_info *info)
 	info->length = ft_lstsize(*stack_a);
 	if (info->length <= 100)
 		info->section_all = 4;
-	else if (info->length < 500)
-		info->section_all = 8;
 	else
-		info->section_all = 16;
+		info->section_all = 8;
 	info->section_divide = info->length / info->section_all;
 	info->section_remainder = info->length % info->section_all;
 	info->order_start = 1;
