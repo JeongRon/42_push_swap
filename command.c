@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 17:12:51 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/25 22:49:21 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 06:39:28 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,44 @@
 
 void	sa(t_stack **stack_a, int flag)
 {
-	int		up;
-	int		down;
+	int		up[2];
+	int		down[2];
 	t_stack	*tmp;
 
 	tmp = *stack_a;
 	if (!tmp || !tmp->next)
 		return ;
-	up = tmp->value;
+	up[0] = tmp->value;
+	up[1] = tmp->order;
 	tmp = tmp->next;
-	down = tmp->value;
-	tmp->value = up;
-	(*stack_a)->value = down;
+	down[0] = tmp->value;
+	down[1] = tmp->order;
+	tmp->value = up[0];
+	tmp->order = up[1];
+	(*stack_a)->value = down[0];
+	(*stack_a)->order = down[1];
 	if (flag == 0)
 		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **stack_b, int flag)
 {
-	int		up;
-	int		down;
+	int		up[2];
+	int		down[2];
 	t_stack	*tmp;
 
 	tmp = *stack_b;
 	if (!tmp || !tmp->next)
 		return ;
-	up = tmp->value;
+	up[0] = tmp->value;
+	up[1] = tmp->order;
 	tmp = tmp->next;
-	down = tmp->value;
-	tmp->value = up;
-	(*stack_b)->value = down;
+	down[0] = tmp->value;
+	down[1] = tmp->order;
+	tmp->value = up[0];
+	tmp->order = up[1];
+	(*stack_b)->value = down[0];
+	(*stack_b)->order = down[1];
 	if (flag == 0)
 		write(1, "sb\n", 3);
 }

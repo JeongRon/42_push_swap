@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:38:39 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 00:42:50 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 07:47:27 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,7 +219,9 @@ void	make_info(t_stack **stack_a, t_info *info)
 		info->order_end = info->section_divide;
 	info->play_section = 1;
 	info->play_cnt = info->order_end - info->order_start + 1;
+	info->play_order = 0;
 	info->order_center = (info->order_end + info->order_start) / 2;
+	info->chunk = 33;
 }
 
 // void	leak_check(void)

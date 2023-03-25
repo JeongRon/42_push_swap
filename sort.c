@@ -6,45 +6,26 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:17:43 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 02:27:25 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:11:07 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	run_ra_command(t_stack **stack_a, t_stack **stack_b, t_info *info)
+void	run_command(t_stack **stack_a, t_stack **stack_b, t_info *info, int dir)
 {
-	while (1)
+	while ((*stack_a)->order > info->play_order + info->chunk)
 	{
-		if (info->order_start <= (*stack_a)->order && (*stack_a)->order <= info->order_end)
-		{
-			pb(stack_a, stack_b);
-			break ;
-		}
-		ra(stack_a, 0);
+		if (dir == 1)
+			ra(stack_a, 0);
+		else if (dir == -1)
+			rra(stack_a, 0);
 	}
-	if (info->order_center > (*stack_b)->order)
+	if ((*stack_a)->order < info->play_order)
+		pb(stack_a, stack_b);
+	else
 	{
-		if (info->play_cnt >= 2 && (info->order_start > (*stack_a)->order || (*stack_a)->order > info->order_end))
-			rr(stack_a, stack_b, 1);
-		else
-			rb(stack_b, 0);
-	}
-}
-
-void	run_rra_command(t_stack **stack_a, t_stack **stack_b, t_info *info)
-{
-	while (1)
-	{
-		if (info->order_start <= (*stack_a)->order && (*stack_a)->order <= info->order_end)
-		{
-			pb(stack_a, stack_b);
-			break ;
-		}
-		rra(stack_a, 0);
-	}
-	if (info->order_center > (*stack_b)->order)
-	{
+		pb(stack_a, stack_b);
 		rb(stack_b, 0);
 	}
 }
@@ -67,6 +48,7 @@ int	choose_direction(t_stack **stack_a, t_info *info)
 			if (info->order_start <= tmp->order && tmp->order <= info->order_end)
 				cnt++;
 		tmp = tmp->next;
+		node++;
 	}
 	if (cnt >= (info->play_cnt * 2) / 3)
 		return (-1);
@@ -85,11 +67,9 @@ void	send_a_to_b(t_stack **stack_a, t_stack **stack_b, t_info *info)
 		dir = choose_direction(stack_a, info);
 		while (info->play_cnt != 0)
 		{
-			if (dir == 1)
-				run_ra_command(stack_a, stack_b, info);
-			else
-				run_rra_command(stack_a, stack_b, info);
+			run_command(stack_a, stack_b, info, dir);
 			info->play_cnt--;
+			info->play_order++;
 		}
 		// section 1증가 -> 다른 값들도 갱신
 		info->play_section++;
