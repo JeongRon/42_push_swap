@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:00:24 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/25 22:49:46 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 02:14:02 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ typedef struct s_info
 	int		play_cnt;
 }	t_info;
 
+// main
+int	check_sorted(t_stack **stack_a);
+
 // list
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
@@ -61,6 +64,7 @@ void	rrb(t_stack **stack_b, int flag);
 void	rrr(t_stack **stack_a, t_stack **stack_b, int flag);
 
 // sort
+void	sort_stack(t_stack **stack_a, t_stack **stack_b, t_info *info);
 void	send_a_to_b(t_stack **stack_a, t_stack **stack_b, t_info *info);
 void	run_command(t_stack **stack_a, t_stack **stack_b, t_info *info);
 

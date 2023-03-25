@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:38:39 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/25 22:49:38 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 00:42:50 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,8 +260,7 @@ int	main(int ac, char **av)
 		if (check_sorted(&stack_a) == SUCCESS)
 			return (0);
 		make_order(&stack_a, &info);
-		send_a_to_b(&stack_a, &stack_b, &info);
-		send_b_to_a(&stack_a, &stack_b, &info);
+		sort_stack(&stack_a, &stack_b, &info);
 	}
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);

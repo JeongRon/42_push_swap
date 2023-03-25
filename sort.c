@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:17:43 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/25 22:50:00 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 02:27:25 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,4 +174,94 @@ void	send_b_to_a(t_stack **stack_a, t_stack **stack_b, t_info *info)
 		run_com(direction, find_order, stack_a, stack_b);
 		find_order--;
 	}
+}
+
+void	mini_check_command(t_stack **stack_a)
+{
+	t_stack	*tmp;
+	int		arr[3];
+	int		index;
+
+	tmp = *stack_a;
+	index = 0;
+	if (check_sorted(stack_a) == SUCCESS)
+		return ;
+	while (tmp)
+	{
+		arr[index] = tmp->order;
+		index++;
+		tmp = tmp->next;
+	}
+	if (arr[0] < arr[1] && arr[0] < arr[2])
+	{
+		sa(stack_a, 0);
+		ra(stack_a, 0);
+	}
+	else if (arr[1] < arr[0] && arr[1] < arr[2])
+	{
+		if (arr[0] < arr[2])
+			sa(stack_a, 0);
+		else
+			ra(stack_a, 0);
+	}
+	else
+	{
+		if (arr[0] > arr[1])
+			sa(stack_a, 0);
+		ra(stack_a, 0);
+		ra(stack_a, 0);
+	}
+}
+
+void	mini_a_to_b(t_stack **stack_a, t_stack **stack_b, int length)
+{
+	int		catch_order;
+	int		cnt;
+
+	catch_order = length - 3;
+	cnt = length - 3;
+	while (cnt != 0)
+	{
+		if ((*stack_a)->order <= catch_order)
+		{
+			pb(stack_a, stack_b);
+			cnt--;
+		}
+		else
+			ra(stack_a, 0);
+	}
+}
+
+void	mini_b_to_a(t_stack **stack_a, t_stack **stack_b, int length)
+{
+	if (length == 5)
+		pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
+	if (check_sorted(stack_a) == FAIL)
+		sa(stack_a, 0);
+}
+
+void	mini_sort(t_stack **stack_a, t_stack **stack_b, t_info *info)
+{
+	if (info->length == 2)
+		sa(stack_a, 0);
+	else if (info->length == 3)
+		mini_check_command(stack_a);
+	else
+	{
+		mini_a_to_b(stack_a, stack_b, info->length);
+		mini_check_command(stack_a);
+		mini_b_to_a(stack_a, stack_b, info->length);
+	}
+}
+
+void	sort_stack(t_stack **stack_a, t_stack **stack_b, t_info *info)
+{
+	if (info->length > 5)
+	{
+		send_a_to_b(stack_a, stack_b, info);
+		send_b_to_a(stack_a, stack_b, info);
+	}
+	else
+		mini_sort(stack_a, stack_b, info);
 }
