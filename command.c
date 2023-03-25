@@ -6,13 +6,13 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 17:12:51 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/21 23:27:56 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/25 22:49:21 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **stack_a)
+void	sa(t_stack **stack_a, int flag)
 {
 	int		up;
 	int		down;
@@ -26,9 +26,11 @@ void	sa(t_stack **stack_a)
 	down = tmp->value;
 	tmp->value = up;
 	(*stack_a)->value = down;
+	if (flag == 0)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack **stack_b)
+void	sb(t_stack **stack_b, int flag)
 {
 	int		up;
 	int		down;
@@ -42,12 +44,16 @@ void	sb(t_stack **stack_b)
 	down = tmp->value;
 	tmp->value = up;
 	(*stack_b)->value = down;
+	if (flag == 0)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b, int flag)
 {
-	sa(stack_a);
-	sb(stack_b);
+	sa(stack_a, flag);
+	sb(stack_b, flag);
+	if (flag == 1)
+		write(1, "ss\n", 3);
 }
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
@@ -74,7 +80,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	write(1, "pb\n", 3);
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, int flag)
 {
 	t_stack	*tmp;
 
@@ -85,10 +91,11 @@ void	ra(t_stack **stack_a)
 	*stack_a = (*stack_a)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack_a, tmp);
-	write(1, "ra\n", 3);
+	if (flag == 0)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_b, int flag)
 {
 	t_stack	*tmp;
 
@@ -98,16 +105,19 @@ void	rb(t_stack **stack_b)
 	*stack_b = (*stack_b)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(stack_b, tmp);
-	write(1, "rb\n", 3);
+	if (flag == 0)
+		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, int flag)
 {
-	ra(stack_a);
-	rb(stack_b);
+	ra(stack_a, flag);
+	rb(stack_b, flag);
+	if (flag == 1)
+		write(1, "rr\n", 3);
 }
 
-void	rra(t_stack **stack_a)
+void	rra(t_stack **stack_a, int flag)
 {
 	t_stack	*curr;
 	t_stack	*pre;
@@ -123,10 +133,11 @@ void	rra(t_stack **stack_a)
 	pre->next = NULL;
 	curr->next = *stack_a;
 	*stack_a = curr;
-	write(1, "rra\n", 4);
+	if (flag == 0)
+		write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b, int flag)
 {
 	t_stack	*curr;
 	t_stack	*pre;
@@ -142,11 +153,14 @@ void	rrb(t_stack **stack_b)
 	pre->next = NULL;
 	curr->next = *stack_b;
 	*stack_b = curr;
-	write(1, "rrb\n", 4);
+	if (flag == 0)
+		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b, int flag)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rra(stack_a, flag);
+	rrb(stack_b, flag);
+	if (flag == 1)
+		write(1, "rrr\n", 4);
 }
