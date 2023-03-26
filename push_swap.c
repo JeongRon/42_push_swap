@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:38:39 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 11:37:15 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 11:47:24 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 			ft_lstclear(&a);
 			return (error_msg());
 		}
-		init_info_order(&a, &info);
+		init_info(&a, &info);
 		if (check_sorted(&a) == SUCCESS)
 		{
 			ft_lstclear(&a);

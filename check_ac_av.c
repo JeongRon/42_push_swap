@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:13:37 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 11:45:04 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 11:52:24 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	check_num(char *s, int start, int end, t_stack **a)
 		index++;
 	}
 	num[index] = '\0';
-	if (input_num(num, a) == FAIL)
+	if (check_input_num(num, a) == FAIL)
 		return (0);
 	return (SUCCESS);
 }
