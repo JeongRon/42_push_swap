@@ -6,12 +6,13 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:20:37 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 11:20:46 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:48:49 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// (mini) 3개 숫자를 최적으로 정렬하는 함수
 void	mini_sort_command(t_stack **a, int *arr)
 {
 	if (arr[0] < arr[1] && arr[0] < arr[2])
@@ -35,6 +36,7 @@ void	mini_sort_command(t_stack **a, int *arr)
 	}
 }
 
+// (mini) 3개 숫자의 순서를 찾고, 정렬하는 함수
 void	mini_check_command(t_stack **a)
 {
 	t_stack	*tmp;
@@ -54,6 +56,7 @@ void	mini_check_command(t_stack **a)
 	mini_sort_command(a, arr);
 }
 
+// (mini) a->b스택으로 이동하는 함수
 void	mini_a_to_b(t_stack **a, t_stack **b, int fish)
 {
 	int		catch_order;
@@ -73,6 +76,7 @@ void	mini_a_to_b(t_stack **a, t_stack **b, int fish)
 	}
 }
 
+// (mini) b->a스택으로 이동하는 함수
 void	mini_b_to_a(t_stack **a, t_stack **b, int fish)
 {
 	if (fish == 5)
@@ -82,6 +86,7 @@ void	mini_b_to_a(t_stack **a, t_stack **b, int fish)
 		sa(a, 0);
 }
 
+// (mini) 5개 이하의 숫자가 들어온 스택 정렬하는 함수
 void	mini_sort(t_stack **a, t_stack **b, t_info *info)
 {
 	if (info->fish == 2)

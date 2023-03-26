@@ -6,12 +6,13 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:50:50 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 10:55:46 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:17:22 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// a스택 첫 두 요소 교환
 void	sa(t_stack **a, int flag)
 {
 	int		up[2];
@@ -34,6 +35,7 @@ void	sa(t_stack **a, int flag)
 		write(1, "sa\n", 3);
 }
 
+// b스택 첫 두 요소 교환
 void	sb(t_stack **b, int flag)
 {
 	int		up[2];
@@ -56,6 +58,7 @@ void	sb(t_stack **b, int flag)
 		write(1, "sb\n", 3);
 }
 
+// sa, sb 동시 실행
 void	ss(t_stack **a, t_stack **b, int flag)
 {
 	sa(a, flag);
@@ -64,6 +67,7 @@ void	ss(t_stack **a, t_stack **b, int flag)
 		write(1, "ss\n", 3);
 }
 
+// b스택 첫 요소 a스택 맨 위에 넣기
 void	pa(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
@@ -76,6 +80,7 @@ void	pa(t_stack **a, t_stack **b)
 	write(1, "pa\n", 3);
 }
 
+// a스택 첫 요소 b스택 맨 위에 넣기
 void	pb(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;

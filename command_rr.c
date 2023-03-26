@@ -6,12 +6,13 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:50:55 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 10:55:48 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:21:11 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// a스택 모든 요소 한칸씩 밑으로 이동
 void	rra(t_stack **a, int flag)
 {
 	t_stack	*curr;
@@ -32,6 +33,7 @@ void	rra(t_stack **a, int flag)
 		write(1, "rra\n", 4);
 }
 
+// b스택 모든 요소 한칸씩 밑으로 이동
 void	rrb(t_stack **b, int flag)
 {
 	t_stack	*curr;
@@ -52,6 +54,7 @@ void	rrb(t_stack **b, int flag)
 		write(1, "rrb\n", 4);
 }
 
+// rra, rrb 동시 실행
 void	rrr(t_stack **a, t_stack **b, int flag)
 {
 	rra(a, flag);

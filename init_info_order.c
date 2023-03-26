@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_info.c                                        :+:      :+:    :+:   */
+/*   init_info_order.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:28:18 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 11:30:07 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:49:25 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// 가장 작은 value값에 해당 order를 넣는 함수
 void	init_order_one(t_stack **a, int order)
 {
 	long long	small;
@@ -37,6 +38,7 @@ void	init_order_one(t_stack **a, int order)
 	}
 }
 
+// value값에 따라서 order순서 매기는 함수 
 void	init_order(t_stack **a, t_info *info)
 {
 	int		order;
@@ -49,6 +51,7 @@ void	init_order(t_stack **a, t_info *info)
 	}
 }
 
+// info 구조체 값 초기화 하는 함수
 void	init_info(t_stack **a, t_info *info)
 {
 	info->fish = ft_lstsize(*a);
