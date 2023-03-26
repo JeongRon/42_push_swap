@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:00:24 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 08:08:09 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/26 11:43:41 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 # define FAIL 0
 # define SUCCESS 1
@@ -29,49 +28,66 @@ typedef struct s_stack
 
 typedef struct s_info
 {
-	int		length;
-	int		section_all;
-	int		section_divide;
-	int		section_remainder;
-	int		order_start;
-	int		order_end;
-	int		order_center;
-	int		play_section;
-	int		play_cnt;
-	int		play_order;
+	int		fish;
+	int		area;
+	int		duty;
+	int		extra;
+	int		nth_area;
+	int		nth_required;
+	int		finished;
 	int		chunk;
 }	t_info;
 
-// main
-int	check_sorted(t_stack **stack_a);
+// push_swap_util.c
+int			ft_strlen(char *s);
+long long	ft_atoi(char *s);
+int			error_msg(void);
 
-// list
-void	ft_lstadd_front(t_stack **lst, t_stack *new);
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
-t_stack	*ft_lstnew(int value);
-void	ft_lstclear(t_stack **lst);
-int		ft_lstsize(t_stack *lst);
+// check_ac_av.c
+int			check_same_num(long long num, t_stack **a);
+int			check_input_num(char *s, t_stack **a);
+int			check_num(char *s, int start, int end, t_stack **a);
+int			check_av(char *s, t_stack **a);
+int			check_ac_av(int ac, char **av, t_stack **a);
 
-// command
-void	sa(t_stack **stack_a, int flag);
-void	sb(t_stack **stack_b, int flag);
-void	ss(t_stack **stack_a, t_stack **stack_b, int flag);
-void	pa(t_stack **stack_a, t_stack **stack_b);
-void	pb(t_stack **stack_a, t_stack **stack_b);
-void	ra(t_stack **stack_a, int flag);
-void	rb(t_stack **stack_b, int flag);
-void	rr(t_stack **stack_a, t_stack **stack_b, int flag);
-void	rra(t_stack **stack_a, int flag);
-void	rrb(t_stack **stack_b, int flag);
-void	rrr(t_stack **stack_a, t_stack **stack_b, int flag);
+// list_*.c
+void		ft_lstadd_front(t_stack **lst, t_stack *new);
+t_stack		*ft_lstlast(t_stack *lst);
+void		ft_lstadd_back(t_stack **lst, t_stack *new);
+int			ft_lstsize(t_stack *lst);
+t_stack		*ft_lstnew(int value);
+void		ft_lstclear(t_stack **lst);
 
-// sort
-void	sort_stack(t_stack **stack_a, t_stack **stack_b, t_info *info);
-void	send_a_to_b(t_stack **stack_a, t_stack **stack_b, t_info *info);
-void	run_command(t_stack **stack_a, t_stack **stack_b, t_info *info, int dir);
+// init_info_order.c
+void		init_order(t_stack **a, t_info *info);
+void		init_info(t_stack **a, t_info *info);
 
-void	send_b_to_a(t_stack **stack_a, t_stack **stack_b, t_info *info);
-int		find_least_com(int find_order, t_stack **stack_b);
-void	run_com(int direction, int find_order, t_stack **stack_a, t_stack **stack_b);
+// sort_*.c
+int			check_sorted(t_stack **a);
+void		sort_stack(t_stack **a, t_stack **b, t_info *info);
+void		run_command(t_stack **a, t_stack **b, t_info *info, int dir);
+int			choose_direction(t_stack **a, t_info *info);
+void		send_a_to_b(t_stack **a, t_stack **b, t_info *info);
+int			find_least_command(int find_order, t_stack **b);
+void		run_com(int direction, int find_order, t_stack **a, t_stack **b);
+void		send_b_to_a(t_stack **a, t_stack **b, t_info *info);
+void		mini_sort_command(t_stack **a, int *arr);
+void		mini_check_command(t_stack **a);
+void		mini_a_to_b(t_stack **a, t_stack **b, int fish);
+void		mini_b_to_a(t_stack **a, t_stack **b, int fish);
+void		mini_sort(t_stack **a, t_stack **b, t_info *info);
+
+// command_*.c
+void		sa(t_stack **a, int flag);
+void		sb(t_stack **b, int flag);
+void		ss(t_stack **a, t_stack **b, int flag);
+void		pa(t_stack **a, t_stack **b);
+void		pb(t_stack **a, t_stack **b);
+void		ra(t_stack **a, int flag);
+void		rb(t_stack **b, int flag);
+void		rr(t_stack **a, t_stack **b, int flag);
+void		rra(t_stack **a, int flag);
+void		rrb(t_stack **b, int flag);
+void		rrr(t_stack **a, t_stack **b, int flag);
 
 #endif
