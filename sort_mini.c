@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:20:37 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 16:48:49 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:02:11 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	mini_a_to_b(t_stack **a, t_stack **b, int fish)
 	{
 		if ((*a)->order <= catch_order)
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			cnt--;
 		}
 		else
@@ -80,8 +80,8 @@ void	mini_a_to_b(t_stack **a, t_stack **b, int fish)
 void	mini_b_to_a(t_stack **a, t_stack **b, int fish)
 {
 	if (fish == 5)
-		pa(a, b);
-	pa(a, b);
+		pa(a, b, 1);
+	pa(a, b, 1);
 	if (check_sorted(a) == FAIL)
 		sa(a, 0);
 }

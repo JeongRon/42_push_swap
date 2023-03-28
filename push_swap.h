@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:00:24 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 11:43:41 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:12:59 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			error_msg(void);
 int			check_same_num(long long num, t_stack **a);
 int			check_input_num(char *s, t_stack **a);
 int			check_num(char *s, int start, int end, t_stack **a);
-int			check_av(char *s, t_stack **a);
+int			check_av(char *s, t_stack **a, int i, int start);
 int			check_ac_av(int ac, char **av, t_stack **a);
 
 // list_*.c
@@ -81,8 +81,8 @@ void		mini_sort(t_stack **a, t_stack **b, t_info *info);
 void		sa(t_stack **a, int flag);
 void		sb(t_stack **b, int flag);
 void		ss(t_stack **a, t_stack **b, int flag);
-void		pa(t_stack **a, t_stack **b);
-void		pb(t_stack **a, t_stack **b);
+void		pa(t_stack **a, t_stack **b, int flag);
+void		pb(t_stack **a, t_stack **b, int flag);
 void		ra(t_stack **a, int flag);
 void		rb(t_stack **b, int flag);
 void		rr(t_stack **a, t_stack **b, int flag);

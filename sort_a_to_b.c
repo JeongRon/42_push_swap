@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:21:28 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 16:41:57 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:01:30 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	run_command(t_stack **a, t_stack **b, t_info *info, int dir)
 			rra(a, 0);
 	}
 	if ((*a)->order < info->finished)
-		pb(a, b);
+		pb(a, b, 1);
 	else
 	{
-		pb(a, b);
+		pb(a, b, 1);
 		rb(b, 0);
 	}
 }

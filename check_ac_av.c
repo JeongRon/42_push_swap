@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:13:37 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 11:52:24 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:10:32 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,10 @@ int	check_num(char *s, int start, int end, t_stack **a)
 }
 
 // 입력된 문자열을 space 단위로 끊고, 숫자인지 확인하는 함수
-int	check_av(char *s, t_stack **a)
+int	check_av(char *s, t_stack **a, int i, int start)
 {
-	int	i;
-	int	start;
-
-	i = 0;
-	start = -1;
+	if (!s[i])
+		return (FAIL);
 	while (s[i])
 	{
 		if (s[i] == ' ' || s[i] == '\t')
@@ -121,7 +118,7 @@ int	check_ac_av(int ac, char **av, t_stack **a)
 	i = 1;
 	while (i < ac)
 	{
-		if (check_av(av[i], a) == FAIL)
+		if (check_av(av[i], a, 0, -1) == FAIL)
 			return (FAIL);
 		i++;
 	}

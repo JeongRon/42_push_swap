@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:50:50 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 16:54:04 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:27:27 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,12 @@ void	ss(t_stack **a, t_stack **b, int flag)
 }
 
 // b스택 첫 요소 a스택 맨 위에 넣기
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int flag)
 {
 	t_stack	*tmp;
 
-	write(1, "pa\n", 3);
+	if (flag == 1)
+		write(1, "pa\n", 3);
 	tmp = *b;
 	if (!tmp)
 		return ;
@@ -81,11 +82,12 @@ void	pa(t_stack **a, t_stack **b)
 }
 
 // a스택 첫 요소 b스택 맨 위에 넣기
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, int flag)
 {
 	t_stack	*tmp;
 
-	write(1, "pb\n", 3);
+	if (flag == 1)
+		write(1, "pb\n", 3);
 	tmp = *a;
 	if (!tmp)
 		return ;

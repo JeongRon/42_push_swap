@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:21:36 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 16:49:16 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:28:36 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	find_least_command(int find_order, t_stack **b)
 void	run_com(int direction, int find_order, t_stack **a, t_stack **b)
 {
 	if (direction == 0)
-		pa(a, b);
+		pa(a, b, 1);
 	else
 	{
 		while (1)
@@ -52,7 +52,7 @@ void	run_com(int direction, int find_order, t_stack **a, t_stack **b)
 				rrb(b, 0);
 			if ((*b)->order == find_order)
 			{
-				pa(a, b);
+				pa(a, b, 1);
 				break ;
 			}
 		}
