@@ -1,6 +1,8 @@
 # 42_push_swap
 push_swap 프로젝트는 C로 구현된 정렬 알고리즘입니다. 이 프로그램은 정수 목록을 입력으로 받아 두 개의 스택을 사용하여 목록을 오름차순으로 정렬할 수 있는 일련의 명령어를 생성합니다. 이 프로젝트의 목표는 가능한 적은 수의 명령어를 사용하여 목록을 정렬하는 것입니다.
 
+![push_swap_visualizer](https://github.com/JeongRon/42_push_swap/blob/main/video/push_swap_shorts.mov)
+
 ---
 
 ## push_swap 첫 구상
