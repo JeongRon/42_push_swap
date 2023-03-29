@@ -1,43 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_malloc.c                                      :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/26 10:55:18 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 11:44:41 by jeongrol         ###   ########.fr       */
+/*   Created: 2023/03/21 16:17:43 by jeongrol          #+#    #+#             */
+/*   Updated: 2023/03/29 22:36:41 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_stack	*ft_lstnew(int value)
+// 스택 정렬하는 함수
+void	sort_stack(t_stack **a, t_stack **b, t_info *info)
 {
-	t_stack	*new;
-
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->order = 0;
-	new->next = NULL;
-	return (new);
-}
-
-void	ft_lstclear(t_stack **lst)
-{
-	t_stack	*curr;
-	t_stack	*next;
-
-	if (!lst)
-		return ;
-	curr = *lst;
-	while (curr)
+	if (info->fish > 5)
 	{
-		next = curr -> next;
-		free(curr);
-		curr = next;
+		send_a_to_b(a, b, info);
+		send_b_to_a(a, b, info);
 	}
-	*lst = NULL;
+	else
+		mini_sort(a, b, info);
 }

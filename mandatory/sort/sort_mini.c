@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:20:37 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/28 20:02:11 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:36:44 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // (mini) 3개 숫자를 최적으로 정렬하는 함수
 void	mini_sort_command(t_stack **a, int *arr)

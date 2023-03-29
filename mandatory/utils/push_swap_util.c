@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:56:23 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/29 19:48:26 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:36:37 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // 스택이 정렬되어 있는지 확인하는 함수
 int	check_sorted(t_stack **a)

@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:13:37 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/28 20:10:32 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:36:31 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // a리스트 에서 숫자 중복 확인 함수 (맞으면, a리스트에 숫자 추가) 
 int	check_same_num(long long num, t_stack **a)

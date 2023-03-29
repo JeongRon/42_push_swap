@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:50:50 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/28 19:27:27 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:37:05 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // a스택 첫 두 요소 교환
 void	sa(t_stack **a, int flag)

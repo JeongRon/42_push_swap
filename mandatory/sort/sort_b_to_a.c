@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:21:36 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/28 19:28:36 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:36:49 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // 현재 찾고 있는 생선 위치를 파악, 가장 적은 명령어 확인하는 함수 
 int	find_least_command(int find_order, t_stack **b)

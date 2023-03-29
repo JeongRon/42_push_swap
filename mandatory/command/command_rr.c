@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 10:50:55 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 16:54:53 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:37:09 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // a스택 모든 요소 한칸씩 밑으로 이동
 void	rra(t_stack **a, int flag)

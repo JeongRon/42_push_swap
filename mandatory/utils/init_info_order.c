@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:28:18 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 16:49:25 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:36:34 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // 가장 작은 value값에 해당 order를 넣는 함수
 void	init_order_one(t_stack **a, int order)

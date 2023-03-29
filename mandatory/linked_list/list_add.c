@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 17:22:43 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 16:26:28 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:36:59 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {

@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:21:28 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/28 20:01:30 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:36:52 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // 3가지 조건에 맞게 명령어를 실행하는 함수
 void	run_command(t_stack **a, t_stack **b, t_info *info, int dir)

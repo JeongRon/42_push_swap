@@ -6,14 +6,14 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:57:38 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/29 20:27:44 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:43:53 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BONUS_CHECKER_H
 # define BONUS_CHECKER_H
 
-# include "push_swap.h"
+# include "../mandatory/push_swap.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 4
