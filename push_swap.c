@@ -6,12 +6,13 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:38:39 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/26 11:47:24 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:23:35 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// push_swap 메인 함수
 int	main(int ac, char **av)
 {
 	t_stack		*a;

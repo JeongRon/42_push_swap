@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_util.c                                       :+:      :+:    :+:   */
+/*   bonus_gnl_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 13:04:34 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/28 20:21:00 by jeongrol         ###   ########.fr       */
+/*   Created: 2023/03/29 19:20:21 by jeongrol          #+#    #+#             */
+/*   Updated: 2023/03/29 19:34:54 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus_checker.h"
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i])
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
 
 char	*ft_strdup(char *src)
 {
@@ -44,6 +30,26 @@ char	*ft_strdup(char *src)
 	}
 	temp[i] = '\0';
 	return (temp);
+}
+
+void	free_all(char *a, char *b)
+{
+	free(a);
+	free(b);
+}
+
+int	ft_linelen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == '\n')
+			return (i + 1);
+		i++;
+	}
+	return (-1);
 }
 
 char	*ft_strjoin(char *buff, char *tmp, int tmp_len)

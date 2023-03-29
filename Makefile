@@ -6,7 +6,7 @@
 #    By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 18:21:08 by jeongrol          #+#    #+#              #
-#    Updated: 2023/03/28 20:36:57 by jeongrol         ###   ########.fr        #
+#    Updated: 2023/03/29 20:03:18 by jeongrol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ SRCS	=	push_swap.c \
 			command_rr.c \
 			
 BONUS_SRCS = 	bonus_checker.c \
-				bonus_util.c \
+				bonus_gnl.c \
+				bonus_gnl_util.c \
 				push_swap_util.c \
 				check_ac_av.c \
 				list_add.c \

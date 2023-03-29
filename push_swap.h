@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:00:24 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/03/28 20:12:59 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:48:40 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+# define ERROR -1
 # define FAIL 0
 # define SUCCESS 1
 
@@ -39,6 +40,7 @@ typedef struct s_info
 }	t_info;
 
 // push_swap_util.c
+int			check_sorted(t_stack **a);
 int			ft_strlen(char *s);
 long long	ft_atoi(char *s);
 int			error_msg(void);
@@ -63,7 +65,6 @@ void		init_order(t_stack **a, t_info *info);
 void		init_info(t_stack **a, t_info *info);
 
 // sort_*.c
-int			check_sorted(t_stack **a);
 void		sort_stack(t_stack **a, t_stack **b, t_info *info);
 void		run_command(t_stack **a, t_stack **b, t_info *info, int dir);
 int			choose_direction(t_stack **a, t_info *info);
