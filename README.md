@@ -1,4 +1,6 @@
-# 42_push_swap
+# 42_push_swap / 최소한의 명령어를 사용하여 정수 목록 정렬하기 🎈
+
+### push_swap Tester (500 Number)
 ![push_swap_visualizer](https://github.com/JeongRon/42_push_swap/blob/main/video/push_swap_shorts.gif)
 
 ---
